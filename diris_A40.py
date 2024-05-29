@@ -32,6 +32,9 @@ class Diris_A40:
 	
 	def __dataToFrequency(self,data):
 		return self.__getint32(data)/100
+		
+	def __dataToHarminic(self,data):
+		return data[0]/1000
 	
 	def getVoltage(self):
 		U12 = self.__dataToVoltage(self.client.read_holding_registers(0xc552, 2))
@@ -95,3 +98,16 @@ class Diris_A40:
 	
 	def getFrequency(self):
 		return self.__dataToFrequency(self.client.read_holding_registers(0xc55e, 2))
+
+	def getTHD(self):
+		THD_U12 = self.__dataToHarminic(self.client.read_holding_registers(0xc950, 1))
+		THD_U23 = self.__dataToHarminic(self.client.read_holding_registers(0xc951, 1))
+		THD_U31 = self.__dataToHarminic(self.client.read_holding_registers(0xc952, 1))
+		THD_U1  = self.__dataToHarminic(self.client.read_holding_registers(0xc953, 1))
+		THD_U2  = self.__dataToHarminic(self.client.read_holding_registers(0xc954, 1))
+		THD_U3  = self.__dataToHarminic(self.client.read_holding_registers(0xc955, 1))
+		THD_I1  = self.__dataToHarminic(self.client.read_holding_registers(0xc956, 1))
+		THD_I2  = self.__dataToHarminic(self.client.read_holding_registers(0xc957, 1))
+		THD_I3  = self.__dataToHarminic(self.client.read_holding_registers(0xc958, 1))
+		THD_In  = self.__dataToHarminic(self.client.read_holding_registers(0xc959, 1))
+		return {"THD U12": THD_U12, "THD U23": THD_U23, "THD U31": THD_U31, "THD U1": THD_U1, "THD U2": THD_U2, "THD U3": THD_U3, "THD I1": THD_I1, "THD I2": THD_I2, "THD I3": THD_I3, "THD In": THD_In}
