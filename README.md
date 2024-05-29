@@ -38,3 +38,16 @@ Total active power: 46.72 kW
 Total reactive power: 41.71 kVAr
 Cosfi: 0.745
 ```
+The unit of measurement are:
+```
+Voltage:        Volt
+Current:        A
+Power:          kW, kVAr, kVA
+Active power:   kW
+Reactive power: kVAr
+Apparent power: kVA
+Energy:         kWh, kVARh, kVAh
+Cosfi:          Unitless
+Freq:           Herz
+Hour:           Hour
+```
