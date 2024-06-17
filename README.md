@@ -3,7 +3,7 @@ A library for reading values ​​from Socomec Diris A40 via Modbus TCP
 
 # Example
 
-```
+```python
 from diris_A40 import Diris_A40
 
 diris = Diris_A40('IP address')
