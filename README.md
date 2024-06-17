@@ -6,7 +6,7 @@ A library for reading values ​​from Socomec Diris A40 via Modbus TCP
 ```python
 from diris_A40 import Diris_A40
 
-diris = Diris_A40('IP address')
+diris = Diris_A40('192.168.70.217')
 if diris.check_connection():
 	print(diris)
 	print("Voltage:       ", diris.getVoltage())
